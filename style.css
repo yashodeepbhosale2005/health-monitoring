@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0f7f6;
+  color: #004d4a;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  color: #00B3A1;
+  font-size: 2.5rem;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #00867b;
+}
+
+.sensor-box {
+  background-color: white;
+  border: 2px solid #00B3A1;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.sensor-box button {
+  padding: 0.5rem 1rem;
+  background-color: #00B3A1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.future-scope {
+  margin-top: 2rem;
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+ 
