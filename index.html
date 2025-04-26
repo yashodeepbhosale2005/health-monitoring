@@ -2,38 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pulse Rate Monitor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pulse Rate & SpO2 Monitor</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Pulse Rate & SpO₂ Monitor</h1>
-    <p class="tagline">Live health data powered by Arduino & future wearables</p>
-    
-    <div class="sensor-box">
-      <h2>Live Sensor Data</h2>
-      <p>Heart Rate (BPM): <span id="bpm">--</span></p>
-      <p>Oxygen Level (SpO₂): <span id="spo2">--</span></p>
-      <button onclick="generateData()">Simulate Reading</button>
-    </div>
+  <h1>Pulse Rate & Oxygen Monitor</h1>
 
-    <div class="future-scope">
-      <h3>Future Extensions</h3>
-      <ul>
-        <li>Wearable version for continuous monitoring</li>
-        <li>Monthly data collection via web dashboard</li>
-        <li>WhatsApp report sharing system</li>
-        <li>Mobile application sync</li>
-      </ul>
+  <div class="dashboard">
+    <div class="card">
+      <h2>Heart Rate</h2>
+      <p id="bpm">-- BPM</p>
     </div>
-
-    <footer>
-      <p>Created by Yashodeep Bhosale | Color Theme: #00B3A1</p>
-    </footer>
+    <div class="card">
+      <h2>SpO₂ Level</h2>
+      <p id="spo2">-- %</p>
+    </div>
   </div>
 
+  <div class="chart-section">
+    <canvas id="reportChart"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
- 
