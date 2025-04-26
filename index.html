@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pulse Rate & SpO2 Monitor</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Pulse Rate Monitor</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Pulse Rate & Oxygen Monitor</h1>
+  <div class="container">
+    <h1>❤️ Pulse Rate & Oxygen Monitor</h1>
+    
+    <div class="sensor-box">
+      <div class="reading">
+        <h2>Heart Rate</h2>
+        <p id="heartRate" class="pulse">-- BPM</p>
+      </div>
+      <div class="reading">
+        <h2>SpO₂</h2>
+        <p id="spo2" class="pulse">-- %</p>
+      </div>
+    </div>
 
-  <div class="dashboard">
-    <div class="card">
-      <h2>Heart Rate</h2>
-      <p id="bpm">-- BPM</p>
-    </div>
-    <div class="card">
-      <h2>SpO₂ Level</h2>
-      <p id="spo2">-- %</p>
-    </div>
+    <button onclick="simulateData()">🔁 Simulate Sensor Data</button>
+
+    <footer>Made with ❤️ by Yashodeep Bhosale</footer>
   </div>
 
-  <div class="chart-section">
-    <canvas id="reportChart"></canvas>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

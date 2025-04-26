@@ -1,45 +1,84 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #ffcccc, #ffe6e6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
   text-align: center;
-  padding: 20px;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
 }
 
 h1 {
-  color: #d62828;
+  margin-bottom: 30px;
+  color: #cc0000;
 }
 
-.dashboard {
+.sensor-box {
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 30px;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
 
-.card {
-  background: white;
-  border-radius: 12px;
+.reading {
   padding: 20px;
-  width: 200px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: #fff7f7;
+  border: 2px solid #ffcccc;
+  border-radius: 15px;
+  width: 150px;
+  animation: fadeIn 1s ease-in-out;
 }
 
-.card h2 {
-  color: #003049;
+.pulse {
+  font-size: 36px;
+  color: #d10000;
+  animation: popIn 0.5s ease-in-out;
 }
 
-.card p {
-  font-size: 2rem;
-  color: #007f5f;
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background: #cc0000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.chart-section {
-  margin-top: 40px;
-  padding: 20px;
-  background: white;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+button:hover {
+  background: #990000;
+}
+
+footer {
+  margin-top: 20px;
+  color: gray;
+  font-size: 14px;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0.3;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
