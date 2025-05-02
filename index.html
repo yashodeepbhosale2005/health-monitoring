@@ -1,30 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Pulse Rate Monitor</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Pulse & Oxygen Monitor</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>❤️ Pulse Rate & Oxygen Monitor</h1>
-    
-    <div class="sensor-box">
-      <div class="reading">
-        <h2>Heart Rate</h2>
-        <p id="heartRate" class="pulse">-- BPM</p>
-      </div>
-      <div class="reading">
-        <h2>SpO₂</h2>
-        <p id="spo2" class="pulse">-- %</p>
-      </div>
-    </div>
+  <h2>Live Pulse Data</h2>
+  <canvas id="pulseChart" width="400" height="200"></canvas>
 
-    <button onclick="simulateData()">🔁 Simulate Sensor Data</button>
+  <script>
+    const ctx = document.getElementById('pulseChart').getContext('2d');
+    const labels = [], dataPoints = [];
 
-    <footer>Made with ❤️ by Yashodeep Bhosale</footer>
-  </div>
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'IR (Pulse)',
+          data: dataPoints,
+          borderColor: 'red',
+          tension: 0.3
+        }]
+      }
+    });
 
-  <script src="script.js"></script>
+    const socket = io();
+    socket.on("sensorData", (data) => {
+      const ir = parseInt(data.split(",")[0].split(":")[1]);
+      if (labels.length > 20) {
+        labels.shift();
+        dataPoints.shift();
+      }
+      labels.push(new Date().toLocaleTimeString());
+      dataPoints.push(ir);
+      chart.update();
+    });
+  </script>
 </body>
 </html>
