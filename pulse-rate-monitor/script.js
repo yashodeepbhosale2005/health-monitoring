@@ -1,57 +1,38 @@
-const bpmText = document.getElementById('bpm');
-const spo2Text = document.getElementById('spo2');
-const ctx = document.getElementById('chart').getContext('2d');
+// Paste this in script.js
+const ctx = document.getElementById('pulseChart').getContext('2d');
 
-let chart;
-
-function fetchAndUpdate() {
-  fetch('/api/data')
-    .then(res => res.json())
-    .then(data => {
-      const recent = data[data.length - 1];
-      if (recent) {
-        bpmText.textContent = recent.bpm;
-        spo2Text.textContent = recent.spo2;
+const pulseChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: Array.from({ length: 20 }, (_, i) => `T${i+1}`),
+    datasets: [{
+      label: 'Pulse Rate (BPM)',
+      data: Array.from({ length: 20 }, () => Math.floor(Math.random() * (100 - 60 + 1)) + 60),
+      fill: true,
+      borderColor: '#ff4d6d',
+      backgroundColor: 'rgba(255, 77, 109, 0.2)',
+      tension: 0.4,
+      pointRadius: 3,
+      pointBackgroundColor: '#ff4d6d',
+    }]
+  },
+  options: {
+    responsive: true,
+    animation: {
+      duration: 1500,
+    },
+    scales: {
+      y: {
+        beginAtZero: false,
+        min: 50,
+        max: 120,
       }
+    }
+  }
+});
 
-      const labels = data.map(d => new Date(d.time).toLocaleTimeString());
-      const bpmValues = data.map(d => d.bpm);
-      const spo2Values = data.map(d => d.spo2);
-
-      if (!chart) {
-        chart = new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels,
-            datasets: [
-              {
-                label: 'Heart Rate (BPM)',
-                data: bpmValues,
-                borderColor: 'red',
-                tension: 0.3
-              },
-              {
-                label: 'Oxygen Level (%)',
-                data: spo2Values,
-                borderColor: 'blue',
-                tension: 0.3
-              }
-            ]
-          },
-          options: {
-            animation: false,
-            scales: {
-              y: { beginAtZero: true }
-            }
-          }
-        });
-      } else {
-        chart.data.labels = labels;
-        chart.data.datasets[0].data = bpmValues;
-        chart.data.datasets[1].data = spo2Values;
-        chart.update();
-      }
-    });
-}
-
-setInterval(fetchAndUpdate, 3000);
+setInterval(() => {
+  pulseChart.data.datasets[0].data.shift();
+  pulseChart.data.datasets[0].data.push(Math.floor(Math.random() * (100 - 60 + 1)) + 60);
+  pulseChart.update();
+}, 2000);

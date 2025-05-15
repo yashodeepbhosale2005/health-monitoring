@@ -1,19 +1,29 @@
+<!-- Paste this in index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Pulse & SpO₂ Monitor</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pulse Rate Monitor</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <h1>Pulse & Oxygen Monitor</h1>
-  <div class="stats">
-    <p>Heart Rate: <span id="bpm">--</span> BPM</p>
-    <p>Oxygen Level: <span id="spo2">--</span> %</p>
-  </div>
+  <header>
+    <h1> Pulse Rate Monitor</h1>
+    <p>Your Health Companion in Real-Time</p>
+  </header>
 
-  <canvas id="chart" width="600" height="300"></canvas>
+  <main>
+    <div class="graph-container">
+      <canvas id="pulseChart"></canvas>
+    </div>
+  </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <footer>
+    <p> Yashodeep Bhosale</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
