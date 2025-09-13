@@ -11,10 +11,18 @@
     "start": "cd server && npm start",
     "install-all": "npm install && cd server && npm install && cd ../client && npm install"
   },
-  "keywords": ["health", "monitoring", "smart-band", "react", "nodejs", "mongodb"],
+  "keywords": [
+    "health",
+    "monitoring",
+    "smart-band",
+    "react",
+    "nodejs",
+    "mongodb"
+  ],
   "author": "Health Monitoring Team",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "gh-pages": "^6.3.0"
   }
 }
