@@ -2,7 +2,7 @@
   "name": "health-monitoring-client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yashodeepbhosale2005.github.io/health-monitoring-client",
+  "homepage": "https://yashodeepbhosale2005.github.io/health-monitoring",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
